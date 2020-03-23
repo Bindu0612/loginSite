@@ -1,0 +1,25 @@
+.login-form{
+  width: 100%;
+  height:100%;
+  padding: 15px;
+  margin:auto;
+  max-width:330px;
+}
+
+.facebookButton{
+  width: 30%;
+  height: 50%;
+  margin: auto;
+  text-align: center;
+  padding-right:100px;
+}
+
+.signUp{
+  padding:2px;
+}
+
+.formClass{
+ 
+  padding:15px;
+  height: 100%;
+}
