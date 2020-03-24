@@ -1,17 +1,17 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 
-class Home extends Component{
+class Home extends Component {
 
-    logOut=()=>{
-        
+    logOut()  {
+        fire.auth().signOut();
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 Successfully Logged In !
                 <div>
-                    <button type ="button" onClick= {this.logOut}>LogOut</button>
+                    <button type="button" onClick={this.logOut}>LogOut</button>
                 </div>
             </div>
         )

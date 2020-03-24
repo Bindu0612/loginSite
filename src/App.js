@@ -9,38 +9,39 @@ import fire from './components/fire';
 
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    
-    this.state={
+
+
+    this.state = {
       user: "null"
     }
-this.authListener = this.authListener.bind(this);
+    this.authListener = this.authListener.bind(this);
 
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.authListener();
   }
 
-  authListener=()=>{
-  fire.auth().onAuthStateChanged((user)=>{
+  authListener = () => {
+    fire.auth().onAuthStateChanged((user) => {
 
-    if(user) {
-      this.setState({user})
-    }
-    else {
-      this.setState({user: null})
-    }
-  })
+      if (user) {
+        this.setState({ user })
+      }
+      else {
+        this.setState({ user: null })
+      }
+    })
   }
 
-render(){
-  return(<div>
-    {this.state.user ?  (<Home/>) : (<LoginPage/>)}
+  render() {
+    return (<div>
+      {this.state.user ? (<Home />) : (<LoginPage />)}
     </div>
-  )
-}
+    )
+  }
 
 
 }
