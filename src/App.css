@@ -1,22 +1,36 @@
-.login-form{
+.form-style{
   width: 100%;
   height:100%;
   padding: 15px;
   margin:auto;
   max-width:330px;
+  /* text-align: center; */
 }
 
-.facebookButton{
-  width: 30%;
-  height: 50%;
-  margin: auto;
-  text-align: center;
-  padding-right:100px;
+.button-style{
+  width:100%
 }
 
 .signUp{
   padding:2px;
 }
+
+.labelClass{
+  margin-top: 1.5rem;
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.signUp-button{
+    /* transition-duration: 0.4s; */
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA
+  }
+  .signUp-button:hover {
+    background-color: #008CBA; 
+    color: white;
+  }
 
 .formClass{
  

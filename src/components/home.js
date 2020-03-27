@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
+
 class Home extends Component {
 
-    logOut()  {
-        fire.auth().signOut();
+    navigateToLogOut = () =>  {
+       this.props.history.push("loginPage");
     }
 
     render() {
@@ -11,7 +12,7 @@ class Home extends Component {
             <div>
                 Successfully Logged In !
                 <div>
-                    <button type="button" onClick={this.logOut}>LogOut</button>
+                    <button type="button" onClick={this.navigateToLogOut}>LogOut</button>
                 </div>
             </div>
         )

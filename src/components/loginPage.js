@@ -1,79 +1,55 @@
-import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, input } from 'reactstrap';
-import { FacebookLoginButton } from 'react-social-login-buttons';
-import fire from './fire';
-
-
+import React,{Component} from 'react';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import {withRouter} from 'react-router-dom';
+// import { Route, BrowserRouter as Router } from 'react-router-dom'; 
+// import Home from './home';
 
 class LoginPage extends Component {
-
-  constructor() {
-    super();
-  }
-
-  login = () => {
-    const email = document.querySelector("#email").Value;
-    const password = document.querySelector("#password").Value;
-
-    fire.auth().signInWithEmailAndPassword(email, password)
-      .then((user) => {
-        console.log("Successfully logged in");
-      })
-      .catch((err) => {
-        console.log("Error logging in");
+    constructor(){
+      super();
+        this.state ={
+          email : "",
+          password: ""
+        }
+    }
+    
+    
+    navigateToHome = (path)=>{
+      this.props.history.push(path);
+    }
+    
+    navigateToSignupPage =(path) =>{
+        this.props.history.push(path);
+    }
+    
+      render() {
+        return (
+          <Form className="form-style">
+            <h1>
+              <span className= "font-weight-bold " > My Login</span>.com
+            </h1>
+            <h2 className="text-center"> Welcome</h2>
+            <FormGroup><div>
+              <Label>Email</Label>
+              </div>
+              <Input id="email" className="button-style" type ="email" placeholder="Email"/>
+            </FormGroup>
+            <FormGroup>
+              <div>
+              <Label>Password</Label>
+              </div>
+              <Input id="password" className="button-style" type= "password" placeholder="Enter your Password"/>
+            </FormGroup>
+            <Button className="btn-lg btn-dark btn-block" onClick={()=> this.navigateToHome("home")}>Login</Button>
+            <div className="text-center">
+              <a onClick={()=>this.navigateToSignupPage("signUpPage")}>Sign-up</a>
+              <span className="p-2"> | </span>
+              <a href="/Forgot Password">Forgot Password</a>
+            </div>
+          </Form>
+        )
       }
-      )
+    }
+    
 
-  }
-
-  signUp = () => {
-    const email = document.querySelector("#email").Value;
-    const password = document.querySelector("#password").Value;
-
-    fire.auth().createUserWithEmailAndPassword(email, password)
-      .then((user) => {
-        console.log("Successfully signed up");
-      })
-      .catch((err) => {
-        console.log("Error signing up");
-      }
-      )
-
-  }
-  render() {
-    return (<div className="formClass">
-      <Form className="login-form">
-        <h1>
-          <span className="font-weight-bold text-center"> Website</span>.com </h1>
-        <h3 className="text-center"> Welcome </h3>
-
-        <FormGroup>
-          <Label id="email">Email</Label>
-          <input type="email" placeholder="email" />
-        </FormGroup>
-
-        <FormGroup>
-          <Label id="password">Password</Label>
-          <input type="password" placeholder="password" />
-        </FormGroup>
-
-        <Button className="btn-lg btn-dark btn-block" onClick={this.login()}>Login</Button>
-      </Form>
-      <div className="text-center">
-        Or continue with your social account
-        </div>
-      <div className="facebookButton">
-        <FacebookLoginButton />
-      </div>
-      <div className="text-center">
-        <a href="sign-up" onClick={this.signUp}> Sign up</a>
-        <span className="signUp">|</span>
-        <a href="Forgot Password">Forgot Password</a>
-      </div>
-    </div>
-    );
-  }
-
-}
-
-export default LoginPage;
+    export default withRouter(LoginPage);
