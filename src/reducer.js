@@ -1,20 +1,20 @@
-import {UPDATE_USERS} from './action'; 
+import { UPDATE_USERS } from './action';
 
-const initialState={
-    users : []
+const initialState = {
+    users: []
 }
 
-const reducer =(state= initialState, action) =>{
-    const{type,payload} = action;
+const reducer = (state = initialState, action) => {
+    const { type, payload } = action;
 
-    switch(type){
+    switch (type) {
 
-        case  UPDATE_USERS  :{
-return{...state, users:{...state.users, ...payload}}
+        case UPDATE_USERS: {
+            return { ...state, users: [...state.users, payload] }
 
         }
 
-       default: return state;
+        default: return state;
     }
 }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import {compose} from 'redux';
+import {connect} from 'react-redux';
 
 class Home extends Component {
 
@@ -8,15 +9,24 @@ class Home extends Component {
     }
 
     render() {
+     const  userName = this.props.location.state;
+     console.log(this.props.location.state);
         return (
             <div>
-                Successfully Logged In !
+                Hi {userName},    You are successfully Logged In !    
                 <div>
-                    <button type="button" onClick={this.navigateToLogOut}>LogOut</button>
+                    <button className="validate-button" style={{textAlign:"center", position:"absolute"}} type="button" onClick={this.navigateToLogOut}>LogOut</button>
                 </div>
             </div>
         )
     }
 }
 
-export default Home;
+
+const mapStateToProps = state => {
+    return {
+        users: state && state.users
+    }
+}
+
+export default compose( connect(mapStateToProps, null))(Home);
