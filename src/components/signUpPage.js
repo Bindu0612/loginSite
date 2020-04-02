@@ -14,8 +14,8 @@ class SignUpPage extends Component {
             Password: "",
             EmailId: "",
             Occupation: "",
-            phonenumber: ""
-        }
+            phonenumber: "",
+        };
     }
 
     navigateFromSignupToLogin = (path) => {
@@ -27,29 +27,43 @@ class SignUpPage extends Component {
     }
 
     updateStore = () => {
-        const { Name, Password, EmailId, occupation, phonenumber } = this.state;
-        this.props.update_users({ Name, Password, EmailId, occupation, phonenumber });
+        const { Name, Password, EmailId, occupation, phonenumber, } = this.state;
+        this.props.update_users({ Name, Password, EmailId, occupation, phonenumber, });
         this.navigateFromSignupToLogin("loginPage");
-    }
+    }   
 
     render() {
-
         return (
-            <Form className="form-style">
+            <Form className = "form-style">
                 <FormGroup>
-                    <Label className="labelClass"> Name: </Label>
-                    <Input id="name" placeholder="Enter your name..." onChange={e => this.handleChange(e, 'Name')} />
-                    <Label className="labelClass"> Password: </Label>
-                    <Input id="password" type="password" placeholder="Enter your password..." onChange={e => this.handleChange(e, 'Password')} />
-                    <Label className="labelClass"> EmailId : </Label>
-                    <Input id="email" type="email" placeholder="Enter your mail id..." onChange={e => this.handleChange(e, 'EmailId')} />
-                    <Label className="labelClass">Occupation: </Label>
-                    <Input id="occupation" type="text" placeholder="occupation..." onChange={e => this.handleChange(e, 'Occupation')} />
-                    <Label className="labelClass">Phone Number: </Label>
-                    <Input id="phoneno" type="phonenumber" placeholder="Enter your mobile number..." onChange={e => this.handleChange(e, 'phonenumber')} />
+                    <Label className = "labelClass"> Name: </Label>
+                    <Input id = "name" placeholder = "Enter your name..." 
+                    onChange = { (e) => this.handleChange(e, 'Name')} />
+
+                    <Label className = "labelClass"> Password: </Label>
+
+                    <Input id = "password" type = "password" placeholder = "Enter your password..." 
+                    onChange={ (e) => this.handleChange(e, 'Password')} />
+
+                    <Label className = "labelClass"> EmailId : </Label>
+
+                    <Input id = "email" type = "email" placeholder = "Enter your mail id..." 
+                    onChange = { (e) => this.handleChange(e, 'EmailId')} />
+
+                    <Label className = "labelClass"> Occupation: </Label>
+
+                    <Input id = "occupation" type = "text" placeholder = "occupation..." 
+                    onChange = { (e) => this.handleChange(e, 'Occupation')} />
+
+                    <Label className = "labelClass"> Phone Number: </Label>
+
+                    <Input id = "phoneno" type = "phonenumber" placeholder = "Enter your mobile number..." 
+                    onChange = {(e) => this.handleChange(e, 'phonenumber')} />
                 </FormGroup>
+          
                 <div>
-                    <Button className="validate-button" onClick={() => this.updateStore()}>SignUp</Button>
+                    <Button className = "validate-button" 
+                    onClick = { () => this.updateStore() }> SignUp </Button>
                 </div>
             </Form>
         )
