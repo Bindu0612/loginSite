@@ -18,6 +18,7 @@ class SignUpPage extends Component {
         };
     }
 
+    
     navigateFromSignupToLogin = (path) => {
         this.props.history.push(path);
     }

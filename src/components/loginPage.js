@@ -10,6 +10,23 @@ import { compose } from 'redux';
 /* import { Route, BrowserRouter as Router } from 'react-router-dom'; 
  import Home from './home'; */
 
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+
+import reducer from './reducers';
+import mySaga from './sagas';
+
+// create the saga middleware
+const sagaMiddleware = createSagaMiddleware()
+// mount it on the Store
+const store = createStore(
+  reducer,
+  applyMiddleware(sagaMiddleware)
+)
+
+// then run the saga
+sagaMiddleware.run(mySaga)
+
 class LoginPage extends Component {
     constructor() {
         super();
